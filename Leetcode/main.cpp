@@ -55,11 +55,19 @@ class Solution771 {
 */
 
 /*
+* Solve3
+* pass
+* Runtime : 0ms, 100,00%
+* Memory Usage : 6.2MB, 59.64%
+*/
+
+/*
 * big O : O(n*m)
 * n = jewels.length(), m = stones.length()라고 하면
-* 69번째 줄의 1차 for문에서 n번 반복하고 70번째 줄에서 m번 반복한다.
+* 70번째 줄의 1차 for문에서 n번 반복하고 71번째 줄에서 m번 반복한다.
 * 따라서 n*m 번 돌며 70번째 줄의 condition이 true이면 연산을 2번하고 아니라면 1번임으로
 * O(n*m)이라고 할 수 있다. 하지만 numJewelsInStones2는 O(n+m)이지만 n과 m의 크기가 너무 작아 더 느리게 나온것 같다.
+* solve3번은 std::unorder_map을 사용하지 않고 
 */
 public:
     static int numJewelsInStones1(std::string jewels, std::string stones) {
@@ -89,6 +97,21 @@ public:
 
         for (auto c : jewels) {
             count += m[c];
+        }
+
+        return count;
+    }
+    static int numJewelsInStones3(std::string jewels, std::string stones) {
+        char m['z' - 'A' + 1]{ 0, };
+
+        for (auto c : stones) {
+            ++m[c - 'A'];
+        }
+
+        int count = 0;
+
+        for (auto c : jewels) {
+            count += m[c - 'A'];
         }
 
         return count;
