@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Solution102 {
+class Solution101 {
 public:
     struct TreeNode {
         int val;
