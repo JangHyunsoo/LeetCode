@@ -28,7 +28,7 @@ public:
 * 통하여 left는 right-left 순서로 탐색하였고, right부부은 left-right 순서로 탐색하였다.
 */
 public:
-    bool static isSymmetric(TreeNode* root) {
+    bool isSymmetric(TreeNode* root) {
         // 최소 크기가 1임으로 root가 nullptr일 경우는 없음.
         if (!root->left || !root->right) {
             if (root->left == root->right) return true;
@@ -52,7 +52,7 @@ public:
     }
 
 private:
-    void static wfs(TreeNode* root, bool mirror, vector<int>& visitedOrder) {
+    void wfs(TreeNode* root, bool mirror, vector<int>& visitedOrder) {
         queue<TreeNode*> queue;
         queue.push(root);
         while (!queue.empty()) {
